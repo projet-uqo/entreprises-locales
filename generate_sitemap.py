@@ -30,7 +30,7 @@ def generate_sitemap():
 {''.join(urls)}
 </urlset>
 """
-    #with open(os.path.join(SITE_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
+    with open(os.path.join(SITE_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(sitemap_content)
     print("✅ sitemap.xml généré")
 
