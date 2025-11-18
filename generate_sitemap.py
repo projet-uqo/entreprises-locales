@@ -14,10 +14,15 @@ from datetime import datetime
 SITE_DIR = "site"
 BASE_URL = "https://projet-uqo.github.io/entreprises-locales"  # ⚠️ adapte avec ton dépôt GitHub Pages (lien vers site web)
 
+# Pour savoir s'il y a une erreur
+if not os.path.exists(SITE_DIR):
+    print(f"Dossier '{SITE_DIR}' introuvable")
+    exit(1)
+
 # Générer sitemap.xml
 def generate_sitemap():
     urls = []
-    for file in os.listdir(SITE_DIR):
+    for file in sorted(os.listdir(SITE_DIR)):
         if file.endswith(".html"):
             loc = f"{BASE_URL}/{file}"
             lastmod = datetime.today().strftime("%Y-%m-%d")
@@ -36,6 +41,12 @@ def generate_sitemap():
     with open(os.path.join(SITE_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(sitemap_content)
     print("✅ sitemap.xml généré")
+    print(f"✅ {len(urls)} pages ajoutées au sitemap")
+    print("🔍 Exemples d'URLs dans le sitemap :")
+    for url in urls[:3]:
+        print(url.strip())
+
+
 
 # Générer robots.txt
 def generate_robots():
