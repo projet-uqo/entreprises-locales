@@ -50,9 +50,14 @@ jobs:
       - name: Vérifier la présence de index.html
         run: |
           test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
-
-          
-      # Étape 6 : Déploiement vers GitHub Pages
+     
+      # Étape 6 : Vérification que sitemap.xml et robot.txt existent
+      - name: Vérifier la présence de sitemap.xml et robots.txt
+        run: |
+          test -f site/sitemap.xml && echo "✅ sitemap.xml présent" || (echo "sitemap.xml manquant" && exit 1)
+          test -f site/robots.txt && echo "✅ robots.txt présent" || (echo "robots.txt manquant" && exit 1)     
+      
+      # Étape 7 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
