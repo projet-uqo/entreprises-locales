@@ -1,0 +1,41 @@
+name: Déploiement vers GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "site/**"
+      - "generate_site.py"
+      - "generate_sitemap.py"
+      - "data.xlsx"
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout dépôt
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Installer dépendances
+        run: |
+          pip install pandas folium openpyxl tqdm geopy
+
+      - name: Générer le site
+        run: |
+          python generate_site.py
+          python generate_sitemap.py
+
+      - name: Déployer vers GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
