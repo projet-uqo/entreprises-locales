@@ -49,7 +49,8 @@ jobs:
       # Étape 5 : Vérification que index.html existe
       - name: Vérifier la présence de index.html
         run: |
-         test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
+          test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
+
           
       # Étape 6 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
