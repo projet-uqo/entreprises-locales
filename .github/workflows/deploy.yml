@@ -1,38 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+# Déploiement automatique du site web via GitHub Actions
 name: Déploiement vers GitHub Pages
 
+# 📅 Déclenchement du workflow
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches:
-      - main
-    paths:
-      - "site/**"
-      #- "generate_site.py"
-      - "generate_sitemap.py"
-      #- "data.xlsx"
-  workflow_dispatch:
+    branches: [ "main" ] # Déclenché à chaque push sur la branche principale
+  pull_request:
+    branches: [ "main" ] # Optionnel : déclenche sur les pull requests
 
+ # Permet de lancer manuellement depuis l'onglet Actions
+  workflow_dispatch: 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Définition du job principal
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest # Utilise un environnement Linux pour exécuter les étapes
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Étape 1 : Récupération du dépôt
       - name: Checkout dépôt
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        
+      # Étape 2 : Configuration de Python
+       - name: Setup Python
+         uses: actions/setup-python@v4
+         with:
+           python-version: '3.12'
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
+      #  Étape 3 : Installation des dépendances
+       - name: Installer les dépendances Python
+         run: |
+           pip install pandas folium openpyxl tqdm geopy
 
-      - name: Installer dépendances
-        run: |
-          pip install pandas folium openpyxl tqdm geopy
+      #  Étape 4 : Génération du sitemap et robots.txt (commentée pour l’instant)
+       - name: Générer le site, sitemap et robots.txt
+         run: |
+           #python generate_site.py
+           python generate_sitemap.py
 
-      - name: Générer le site , sitemap et robots.txt
-        run: |
-          #python generate_site.py
-          python generate_sitemap.py
-
+      # Étape 5 : Vérification que index.html existe
+       - name: Vérifier la présence de index.html
+         run: |
+          test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
+          
+      # Étape 6 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
