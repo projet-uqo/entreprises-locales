@@ -9,7 +9,7 @@ Original file is located at
 
 # Dossier où tes fichiers HTML sont générés
 SITE_DIR = "site"
-BASE_URL = "https://github.com/projet-uqo/entreprises-locales"  # ⚠️ adapte avec ton dépôt GitHub Pages
+BASE_URL = "https://projet-uqo.github.io/entreprises-locales"  # ⚠️ adapte avec ton dépôt GitHub Pages (lien vers site web)
 
 # Générer sitemap.xml
 def generate_sitemap():
