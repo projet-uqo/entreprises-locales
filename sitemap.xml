@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://projet-uqo.github.io/entreprises-locales/carte_pme_gatineau.html</loc>
+    <lastmod>2025-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://projet-uqo.github.io/entreprises-locales/contact.html</loc>
+    <lastmod>2025-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://projet-uqo.github.io/entreprises-locales/index.html</loc>
+    <lastmod>2025-11-18</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://projet-uqo.github.io/entreprises-locales/liste.html</loc>
+    <lastmod>2025-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://projet-uqo.github.io/entreprises-locales/produits.html</loc>
+    <lastmod>2025-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
