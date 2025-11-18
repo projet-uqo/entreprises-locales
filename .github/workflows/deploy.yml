@@ -30,26 +30,26 @@ jobs:
         uses: actions/checkout@v4
         
       # Étape 2 : Configuration de Python
-       - name: Setup Python
-         uses: actions/setup-python@v4
-         with:
-           python-version: '3.12'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
 
       #  Étape 3 : Installation des dépendances
-       - name: Installer les dépendances Python
-         run: |
-           pip install pandas folium openpyxl tqdm geopy
+      - name: Installer les dépendances Python
+        run: |
+          pip install pandas folium openpyxl tqdm geopy
 
       #  Étape 4 : Génération du sitemap et robots.txt (commentée pour l’instant)
-       - name: Générer le site, sitemap et robots.txt
-         run: |
-           #python generate_site.py
-           python generate_sitemap.py
+      - name: Générer le site, sitemap et robots.txt
+        run: |
+          #python generate_site.py
+          python generate_sitemap.py
 
       # Étape 5 : Vérification que index.html existe
-       - name: Vérifier la présence de index.html
-         run: |
-          test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
+      - name: Vérifier la présence de index.html
+        run: |
+         test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
           
       # Étape 6 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
