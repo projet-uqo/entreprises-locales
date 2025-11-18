@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des entreprises – Entreprises locales</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="Découvrez les entreprises locales de Gatineau grâce à notre carte interactive et nos listes.">
+  <meta name="keywords" content="Gatineau, entreprises locales, commerce, services, carte interactive, produits locaux">
+  <meta name="author" content="Découvrez Gatineau: nos entreprises locales">
+  
+  <!-- Accessibilité et affichage -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Open Graph (réseaux sociaux) -->
+  <meta property="og:title" content="Liste des entreprises – Entreprises locales | Entreprises locales à Gatineau">
+  <meta property="og:description" content="Découvrez les entreprises locales de Gatineau grâce à notre carte interactive et nos listes.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/projet-uqo/entreprises-locales">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+  
+  <!-- Feuille de style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo du site" class="logo">
+    <h1>Entreprises locales à Gatineau</h1>
+  </header>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="liste.html">Liste des entreprises</a>
+    <a href="produits.html">Produits offerts</a>
+    <a href="contact.html">Nous contacter</a>
+  </nav>
+  <div class="content">
+
+<h2>Liste des entreprises participantes</h2>
+<ul id='entreprise-list'>
+<li><b>4 CPA Inc.</b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>Hom mini chalets</b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>53 Karat</b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>Koena Spa</b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>La Benanderie </b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>SERVICES VIRTUELS MADORE </b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>Sport échange Outaouais</b> – Vente et réparation d'article de plein air – <a href='nan' target='_blank'>Site web</a></li>
+<li><b>123 Saute</b> – nan – <a href='nan' target='_blank'>Site web</a></li>
+</ul>
+
+<h2>Ajouter une entreprise</h2>
+<form id="ajout-form">
+  <label for="nom">Nom de l’entreprise :</label>
+  <input type="text" id="nom" required>
+
+  <label for="secteur">Secteur d’activité :</label>
+  <input type="text" id="secteur" required>
+
+  <label for="site">Site web :</label>
+  <input type="url" id="site" placeholder="https://..." required>
+
+  <button type="submit">Ajouter à la liste</button>
+</form>
+
+<script>
+  const form = document.getElementById('ajout-form');
+  const liste = document.getElementById('entreprise-list');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const nom = document.getElementById('nom').value.trim();
+    const secteur = document.getElementById('secteur').value.trim();
+    const site = document.getElementById('site').value.trim();
+
+    if (nom && secteur && site) {
+      const li = document.createElement('li');
+      li.innerHTML = `<b>${nom}</b> – ${secteur} – <a href="${site}" target="_blank">Site web</a>`;
+      liste.appendChild(li);
+      form.reset();
+    }
+  });
+</script>
+
+  </div>
+    <footer>
+    <p>&copy; 2025 Gatineau Connect – Projet universitaire</p>
+  </footer>
+</body>
+</html>
