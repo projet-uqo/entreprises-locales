@@ -23,7 +23,7 @@ def generate_sitemap():
     for file in sorted(os.listdir(SITE_DIR)):
         if file.endswith(".html"):
             # 🚫 Exclure le fichier de validation Google et la carte PME individuelle
-            if file.startswith("google") or file == "carte_pme_individuelle.html":
+            if file.startswith("google") or file == "carte_pme_gatineau.html":
                 continue
                 
             loc = f"{BASE_URL}/{file}"
