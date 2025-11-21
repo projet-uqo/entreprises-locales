@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9cdee91d6ba4da6949e65ca4c567cb55 {
+                #map_27c687dcb0e17116f2264bc2974b950d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -56,14 +56,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_9cdee91d6ba4da6949e65ca4c567cb55" ></div>
+            <div class="folium-map" id="map_27c687dcb0e17116f2264bc2974b950d" ></div>
         
 </body>
 <script>
     
     
-            var map_9cdee91d6ba4da6949e65ca4c567cb55 = L.map(
-                "map_9cdee91d6ba4da6949e65ca4c567cb55",
+            var map_27c687dcb0e17116f2264bc2974b950d = L.map(
+                "map_27c687dcb0e17116f2264bc2974b950d",
                 {
                     center: [45.4765, -75.7013],
                     crs: L.CRS.EPSG3857,
@@ -80,7 +80,7 @@
 
         
     
-            var tile_layer_2e42e98448bdab46e255d1a2d381d6aa = L.tileLayer(
+            var tile_layer_a8fa394d365ecc852b6a12fd94077e75 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -97,7 +97,7 @@
             );
         
     
-            tile_layer_2e42e98448bdab46e255d1a2d381d6aa.addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            tile_layer_a8fa394d365ecc852b6a12fd94077e75.addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
             L.control.fullscreen(
@@ -107,47 +107,47 @@
   "titleCancel": "Exit Full Screen",
   "forceSeparateButton": false,
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var marker_9bad44c1d77396d0a49ef6994e24474e = L.marker(
-                [45.4468645, -75.7412864],
+            var marker_272875dbf76cd445b112a7d6ecb61c94 = L.marker(
+                [45.4435782, -75.7382933],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_88e0f8b1b552e1f5cd462ec945507068 = L.AwesomeMarkers.icon(
+            var icon_c8a0abbff577af18b2f1097d7396475e = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "purple",
+  "markerColor": "gray",
   "iconColor": "white",
-  "icon": "palette",
-  "prefix": "fa",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_5498e95cd29df492e1e3d8382c9a8eab = L.popup({
+        var popup_4a5956d90268bbdde9aa6b225e16275b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_eb0ac925323961e578235dc194d629ce = $(`<div id="html_eb0ac925323961e578235dc194d629ce" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Amuzart</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Arts, spectacles et loisirs</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 85 boul. St-Raymond, Gatineau (Hull J8Y 1S4</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_5498e95cd29df492e1e3d8382c9a8eab.setContent(html_eb0ac925323961e578235dc194d629ce);
+                var html_466f4b8cdf2b253b0c1704c4375f29da = $(`<div id="html_466f4b8cdf2b253b0c1704c4375f29da" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Inspirations Voyage</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Agence de voyages</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 600-15 Rue Gamelin, Gatineau, QC J8Y 6N5,</p>         <a href='https://inspirationsvoyage.com/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_4a5956d90268bbdde9aa6b225e16275b.setContent(html_466f4b8cdf2b253b0c1704c4375f29da);
             
         
 
-        marker_9bad44c1d77396d0a49ef6994e24474e.bindPopup(popup_5498e95cd29df492e1e3d8382c9a8eab)
+        marker_272875dbf76cd445b112a7d6ecb61c94.bindPopup(popup_4a5956d90268bbdde9aa6b225e16275b)
         ;
 
         
     
     
-            marker_9bad44c1d77396d0a49ef6994e24474e.bindTooltip(
+            marker_272875dbf76cd445b112a7d6ecb61c94.bindTooltip(
                 `<div>
-                     Amuzart
+                     Inspirations Voyage
                  </div>`,
                 {
   "sticky": true,
@@ -155,17 +155,17 @@
             );
         
     
-                marker_9bad44c1d77396d0a49ef6994e24474e.setIcon(icon_88e0f8b1b552e1f5cd462ec945507068);
+                marker_272875dbf76cd445b112a7d6ecb61c94.setIcon(icon_c8a0abbff577af18b2f1097d7396475e);
             
     
-            var marker_d0c4c2fbd6e117f9e8207cdc66c9d9f5 = L.marker(
+            var marker_0fa530d2165349aa3f3d54a51dc42fed = L.marker(
                 [45.5158211, -75.5638724],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_7ccd3e492585872fef43531b4c18245f = L.AwesomeMarkers.icon(
+            var icon_38913e11657bc5f9a04ff14403553318 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -176,24 +176,24 @@
             );
         
     
-        var popup_032885d6d2d551c399808f20bc2ae5a8 = L.popup({
+        var popup_844f2beab7c1a4011dc99f1a0fa3ff5f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cfa2bac46255fd4af3a18a752f1b7fdc = $(`<div id="html_cfa2bac46255fd4af3a18a752f1b7fdc" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>ARTIST IN RESIDENCE DISTILLERIE</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Agroalimentaire</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 243, rue Bombardier Gatineau (Québec</p>         <a href='https://airdistillerie.com/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
-                popup_032885d6d2d551c399808f20bc2ae5a8.setContent(html_cfa2bac46255fd4af3a18a752f1b7fdc);
+                var html_f632c705044f98fc2901f12bb67c5c87 = $(`<div id="html_f632c705044f98fc2901f12bb67c5c87" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>ARTIST IN RESIDENCE DISTILLERIE</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Agroalimentaire</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 243 Rue Bombardier Gatineau, QC J8R 0C6</p>         <a href='https://airdistillerie.com/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_844f2beab7c1a4011dc99f1a0fa3ff5f.setContent(html_f632c705044f98fc2901f12bb67c5c87);
             
         
 
-        marker_d0c4c2fbd6e117f9e8207cdc66c9d9f5.bindPopup(popup_032885d6d2d551c399808f20bc2ae5a8)
+        marker_0fa530d2165349aa3f3d54a51dc42fed.bindPopup(popup_844f2beab7c1a4011dc99f1a0fa3ff5f)
         ;
 
         
     
     
-            marker_d0c4c2fbd6e117f9e8207cdc66c9d9f5.bindTooltip(
+            marker_0fa530d2165349aa3f3d54a51dc42fed.bindTooltip(
                 `<div>
                      ARTIST IN RESIDENCE DISTILLERIE
                  </div>`,
@@ -203,209 +203,17 @@
             );
         
     
-                marker_d0c4c2fbd6e117f9e8207cdc66c9d9f5.setIcon(icon_7ccd3e492585872fef43531b4c18245f);
+                marker_0fa530d2165349aa3f3d54a51dc42fed.setIcon(icon_38913e11657bc5f9a04ff14403553318);
             
     
-            var marker_0fc1ac52c195d15504bcdd57c6268c25 = L.marker(
-                [45.427824, -75.717201],
-                {
-}
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
-        
-    
-            var icon_84fcc9c756be986bbe673a25bb83ddf1 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_3fb4339eccd82dc86d817c0624ed0212 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_7fda9b302c4899b23b3d5cb75963afda = $(`<div id="html_7fda9b302c4899b23b3d5cb75963afda" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>4 CPA Inc.</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 63 Rue de l'Hôtel-de-Ville, Gatineau, QC J8X 2E4</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_3fb4339eccd82dc86d817c0624ed0212.setContent(html_7fda9b302c4899b23b3d5cb75963afda);
-            
-        
-
-        marker_0fc1ac52c195d15504bcdd57c6268c25.bindPopup(popup_3fb4339eccd82dc86d817c0624ed0212)
-        ;
-
-        
-    
-    
-            marker_0fc1ac52c195d15504bcdd57c6268c25.bindTooltip(
-                `<div>
-                     4 CPA Inc.
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_0fc1ac52c195d15504bcdd57c6268c25.setIcon(icon_84fcc9c756be986bbe673a25bb83ddf1);
-            
-    
-            var marker_777081c0359226e65353a50a52256ca2 = L.marker(
-                [45.6377044, -75.6702942],
-                {
-}
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
-        
-    
-            var icon_3db53bb434f435182e71531e458795dc = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_10763102df697ce2880b38613e72afc9 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_f74d72a95915f13a0312a3192239e05f = $(`<div id="html_f74d72a95915f13a0312a3192239e05f" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Hom mini chalets</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 154 Ch du Rubis, Val-des-Monts, QC J8N 0A2</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_10763102df697ce2880b38613e72afc9.setContent(html_f74d72a95915f13a0312a3192239e05f);
-            
-        
-
-        marker_777081c0359226e65353a50a52256ca2.bindPopup(popup_10763102df697ce2880b38613e72afc9)
-        ;
-
-        
-    
-    
-            marker_777081c0359226e65353a50a52256ca2.bindTooltip(
-                `<div>
-                     Hom mini chalets
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_777081c0359226e65353a50a52256ca2.setIcon(icon_3db53bb434f435182e71531e458795dc);
-            
-    
-            var marker_7f308ba9074e5d66e593e0146ba6f636 = L.marker(
-                [45.4751764, -75.6926128],
-                {
-}
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
-        
-    
-            var icon_e3dce0810394daaaf1808e176a904225 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_027171cb573d5789c2d129df3e176079 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_8ae1946e4be5fa4e2291b38bb6fe27da = $(`<div id="html_8ae1946e4be5fa4e2291b38bb6fe27da" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>53 Karat</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 53 Rue Bellehumeur, Gatineau, QC J8T 6K5</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_027171cb573d5789c2d129df3e176079.setContent(html_8ae1946e4be5fa4e2291b38bb6fe27da);
-            
-        
-
-        marker_7f308ba9074e5d66e593e0146ba6f636.bindPopup(popup_027171cb573d5789c2d129df3e176079)
-        ;
-
-        
-    
-    
-            marker_7f308ba9074e5d66e593e0146ba6f636.bindTooltip(
-                `<div>
-                     53 Karat
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_7f308ba9074e5d66e593e0146ba6f636.setIcon(icon_e3dce0810394daaaf1808e176a904225);
-            
-    
-            var marker_b2fabd1c82b1e18fecc169880a8555e2 = L.marker(
-                [45.473696, -75.739726],
-                {
-}
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
-        
-    
-            var icon_fc98b082e000f4ebcb495f2ee5a46fcb = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_95b8bbe7ea57497c4b06163cfc482f9d = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_7d8c61e48793a51af3a8aa35cf0c3f47 = $(`<div id="html_7d8c61e48793a51af3a8aa35cf0c3f47" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Idolem Yoga chaud</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 1160 Bd Saint-Joseph, Gatineau, QC J8Z 1T3</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_95b8bbe7ea57497c4b06163cfc482f9d.setContent(html_7d8c61e48793a51af3a8aa35cf0c3f47);
-            
-        
-
-        marker_b2fabd1c82b1e18fecc169880a8555e2.bindPopup(popup_95b8bbe7ea57497c4b06163cfc482f9d)
-        ;
-
-        
-    
-    
-            marker_b2fabd1c82b1e18fecc169880a8555e2.bindTooltip(
-                `<div>
-                     Idolem Yoga chaud
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_b2fabd1c82b1e18fecc169880a8555e2.setIcon(icon_fc98b082e000f4ebcb495f2ee5a46fcb);
-            
-    
-            var marker_2351b6393a12f299d6c6c37ce3e7b1d9 = L.marker(
+            var marker_66142dc720fbff9a0bd1b4041bdf417b = L.marker(
                 [45.4091625, -75.7776579],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_2d45e51632d146f3bd49164e1426fed4 = L.AwesomeMarkers.icon(
+            var icon_436299f091e344cecb367f000c106b2c = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -416,24 +224,24 @@
             );
         
     
-        var popup_d507f455f591af38beba546e8f88ba8c = L.popup({
+        var popup_b459c7bb3955078f8fe389283cad05f2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a87de254ad88d8c82266c6fe8a48c654 = $(`<div id="html_a87de254ad88d8c82266c6fe8a48c654" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Koena Spa</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 1172 Chemin d'Aylmer, Gatineau (Aylmer J9H 5T2</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_d507f455f591af38beba546e8f88ba8c.setContent(html_a87de254ad88d8c82266c6fe8a48c654);
+                var html_87544d077064f176f2390908020465b9 = $(`<div id="html_87544d077064f176f2390908020465b9" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Koena Spa</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 1172 Chemin d'Aylmer, Gatineau Aylmer J9H 5T2</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
+                popup_b459c7bb3955078f8fe389283cad05f2.setContent(html_87544d077064f176f2390908020465b9);
             
         
 
-        marker_2351b6393a12f299d6c6c37ce3e7b1d9.bindPopup(popup_d507f455f591af38beba546e8f88ba8c)
+        marker_66142dc720fbff9a0bd1b4041bdf417b.bindPopup(popup_b459c7bb3955078f8fe389283cad05f2)
         ;
 
         
     
     
-            marker_2351b6393a12f299d6c6c37ce3e7b1d9.bindTooltip(
+            marker_66142dc720fbff9a0bd1b4041bdf417b.bindTooltip(
                 `<div>
                      Koena Spa
                  </div>`,
@@ -443,17 +251,65 @@
             );
         
     
-                marker_2351b6393a12f299d6c6c37ce3e7b1d9.setIcon(icon_2d45e51632d146f3bd49164e1426fed4);
+                marker_66142dc720fbff9a0bd1b4041bdf417b.setIcon(icon_436299f091e344cecb367f000c106b2c);
             
     
-            var marker_96449e1eaf7f38f5bcd88648d6f93b07 = L.marker(
-                [45.4648765, -75.7717537],
+            var marker_55ccbca81d6766fac62888091dcae377 = L.marker(
+                [45.4822862, -75.6870436],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_4541184b8aad18e573d4b0c799e893e2 = L.AwesomeMarkers.icon(
+            var icon_22124c00fd99c205d007aa30ba6803b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af5a2171a42febdbb52a85b93c984aca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3889a7357ada99af1f6a8b2f75e984b = $(`<div id="html_a3889a7357ada99af1f6a8b2f75e984b" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>BRASSERIE DU BAS-CANADA</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Agroalimentaire</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 103-455, boul. de la Gappe, Gatineau, QC J8T 0G1</p>         <a href='https://www.brasseriebascanada.com/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_af5a2171a42febdbb52a85b93c984aca.setContent(html_a3889a7357ada99af1f6a8b2f75e984b);
+            
+        
+
+        marker_55ccbca81d6766fac62888091dcae377.bindPopup(popup_af5a2171a42febdbb52a85b93c984aca)
+        ;
+
+        
+    
+    
+            marker_55ccbca81d6766fac62888091dcae377.bindTooltip(
+                `<div>
+                     BRASSERIE DU BAS-CANADA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_55ccbca81d6766fac62888091dcae377.setIcon(icon_22124c00fd99c205d007aa30ba6803b7);
+            
+    
+            var marker_a371b0c632cdc859d9cd140698f00c60 = L.marker(
+                [45.462529, -75.7370717],
+                {
+}
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
+        
+    
+            var icon_ce90e1962c8a597fdf33a4ce3eb33c86 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -464,26 +320,26 @@
             );
         
     
-        var popup_7379cb0d980e5ba9929095e1a7fcafb8 = L.popup({
+        var popup_6a20335941e7c8af3bf365add143a821 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_114a04a64dbb2de6aa50d0c9eb7b9093 = $(`<div id="html_114a04a64dbb2de6aa50d0c9eb7b9093" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>La Benanderie </h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 455 Bd Riel, Gatineau, QC J8Z 2J8</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_7379cb0d980e5ba9929095e1a7fcafb8.setContent(html_114a04a64dbb2de6aa50d0c9eb7b9093);
+                var html_8fd9e3fafe32850d44c19ec6e404d3de = $(`<div id="html_8fd9e3fafe32850d44c19ec6e404d3de" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Le Ron Point</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 200-170 Rue Deveault, Gatineau, QC J8Z 1S6</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
+                popup_6a20335941e7c8af3bf365add143a821.setContent(html_8fd9e3fafe32850d44c19ec6e404d3de);
             
         
 
-        marker_96449e1eaf7f38f5bcd88648d6f93b07.bindPopup(popup_7379cb0d980e5ba9929095e1a7fcafb8)
+        marker_a371b0c632cdc859d9cd140698f00c60.bindPopup(popup_6a20335941e7c8af3bf365add143a821)
         ;
 
         
     
     
-            marker_96449e1eaf7f38f5bcd88648d6f93b07.bindTooltip(
+            marker_a371b0c632cdc859d9cd140698f00c60.bindTooltip(
                 `<div>
-                     La Benanderie 
+                     Le Ron Point
                  </div>`,
                 {
   "sticky": true,
@@ -491,17 +347,17 @@
             );
         
     
-                marker_96449e1eaf7f38f5bcd88648d6f93b07.setIcon(icon_4541184b8aad18e573d4b0c799e893e2);
+                marker_a371b0c632cdc859d9cd140698f00c60.setIcon(icon_ce90e1962c8a597fdf33a4ce3eb33c86);
             
     
-            var marker_ddae3aea34adedaa628a1c3d623780d3 = L.marker(
-                [45.5481472, -73.5589097],
+            var marker_3df7a396d22e04cf07e0290d779f6b23 = L.marker(
+                [45.4174155, -75.760478],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_197c59e70a5f349f879d4d9383432faa = L.AwesomeMarkers.icon(
+            var icon_30e44010a2795c6b18f69baa070585ff = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -512,26 +368,26 @@
             );
         
     
-        var popup_5893f2a6a86622600b8a232806ff2ed5 = L.popup({
+        var popup_7cd8e40bb40c336daf7e59f0f9cc92db = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1b5fb7ef49bfc7c7c9bcf539fcd86a98 = $(`<div id="html_1b5fb7ef49bfc7c7c9bcf539fcd86a98" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>71 Légal Inc.</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 779 Rue Rachel E, Montréal, QC H2J 2H4</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_5893f2a6a86622600b8a232806ff2ed5.setContent(html_1b5fb7ef49bfc7c7c9bcf539fcd86a98);
+                var html_a71cd4413db52d9ccb5c1f41317c3f72 = $(`<div id="html_a71cd4413db52d9ccb5c1f41317c3f72" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>L'ATELIER, COLLECTIF D’ARCHITECTES INC.</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Architecture et aménagement</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 200-53 Boulevard St-Raymond, Gatineau, Québec, J8Y 1R8</p>         <a href='https://l-atelier.ca/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_7cd8e40bb40c336daf7e59f0f9cc92db.setContent(html_a71cd4413db52d9ccb5c1f41317c3f72);
             
         
 
-        marker_ddae3aea34adedaa628a1c3d623780d3.bindPopup(popup_5893f2a6a86622600b8a232806ff2ed5)
+        marker_3df7a396d22e04cf07e0290d779f6b23.bindPopup(popup_7cd8e40bb40c336daf7e59f0f9cc92db)
         ;
 
         
     
     
-            marker_ddae3aea34adedaa628a1c3d623780d3.bindTooltip(
+            marker_3df7a396d22e04cf07e0290d779f6b23.bindTooltip(
                 `<div>
-                     71 Légal Inc.
+                     L'ATELIER, COLLECTIF D’ARCHITECTES INC.
                  </div>`,
                 {
   "sticky": true,
@@ -539,17 +395,17 @@
             );
         
     
-                marker_ddae3aea34adedaa628a1c3d623780d3.setIcon(icon_197c59e70a5f349f879d4d9383432faa);
+                marker_3df7a396d22e04cf07e0290d779f6b23.setIcon(icon_30e44010a2795c6b18f69baa070585ff);
             
     
-            var marker_64ed04bf09c40af9fbdbac532cb27d16 = L.marker(
+            var marker_614dc9b68061c6289902360416e58b04 = L.marker(
                 [45.5379753, -75.7631728],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_ce357582ff56c33115674d953284dff6 = L.AwesomeMarkers.icon(
+            var icon_5de8210ece32745bb5797d3bfccdea2f = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -560,24 +416,24 @@
             );
         
     
-        var popup_9b9ca24da527215cdef787a7e77421d0 = L.popup({
+        var popup_e8ef589e53d3699a8d0d537a05420119 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_665d7e20b506a879d33da0a0354eaa3d = $(`<div id="html_665d7e20b506a879d33da0a0354eaa3d" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Ô Naturel Aménagement paysager</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Architecture et aménagement</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 24, rue des Tourterelles, Cantley, QC J8V 3W6</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_9b9ca24da527215cdef787a7e77421d0.setContent(html_665d7e20b506a879d33da0a0354eaa3d);
+                var html_356843aacd8756fb88cfa9cd10fcf0cb = $(`<div id="html_356843aacd8756fb88cfa9cd10fcf0cb" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Ô Naturel Aménagement paysager</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Architecture et aménagement</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 24, rue des Tourterelles, Cantley, QC J8V 3W6</p>         <a href='https://www.o-naturel.com/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_e8ef589e53d3699a8d0d537a05420119.setContent(html_356843aacd8756fb88cfa9cd10fcf0cb);
             
         
 
-        marker_64ed04bf09c40af9fbdbac532cb27d16.bindPopup(popup_9b9ca24da527215cdef787a7e77421d0)
+        marker_614dc9b68061c6289902360416e58b04.bindPopup(popup_e8ef589e53d3699a8d0d537a05420119)
         ;
 
         
     
     
-            marker_64ed04bf09c40af9fbdbac532cb27d16.bindTooltip(
+            marker_614dc9b68061c6289902360416e58b04.bindTooltip(
                 `<div>
                      Ô Naturel Aménagement paysager
                  </div>`,
@@ -587,65 +443,17 @@
             );
         
     
-                marker_64ed04bf09c40af9fbdbac532cb27d16.setIcon(icon_ce357582ff56c33115674d953284dff6);
+                marker_614dc9b68061c6289902360416e58b04.setIcon(icon_5de8210ece32745bb5797d3bfccdea2f);
             
     
-            var marker_8ed2a415677085e190260958ab0251e7 = L.marker(
-                [36.8345663, 10.1750986],
-                {
-}
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
-        
-    
-            var icon_1faabdfc1bd5fba6ffd90fed3472daf3 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_ccfc25461e071f439b50ae696ff48f0b = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_8ee5b6e7a6bd268439d072072b7c3cdd = $(`<div id="html_8ee5b6e7a6bd268439d072072b7c3cdd" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>SERVICES VIRTUELS MADORE </h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> VIRTUELLE</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_ccfc25461e071f439b50ae696ff48f0b.setContent(html_8ee5b6e7a6bd268439d072072b7c3cdd);
-            
-        
-
-        marker_8ed2a415677085e190260958ab0251e7.bindPopup(popup_ccfc25461e071f439b50ae696ff48f0b)
-        ;
-
-        
-    
-    
-            marker_8ed2a415677085e190260958ab0251e7.bindTooltip(
-                `<div>
-                     SERVICES VIRTUELS MADORE 
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_8ed2a415677085e190260958ab0251e7.setIcon(icon_1faabdfc1bd5fba6ffd90fed3472daf3);
-            
-    
-            var marker_8119d0e731623d7423321883c515ff2a = L.marker(
+            var marker_e1aed12d1d65aba22a6b8e9289221067 = L.marker(
                 [45.458996, -75.7345334],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_413c2bb0519111b3bdd75be8238bd69b = L.AwesomeMarkers.icon(
+            var icon_1ef49f7d102169546405da6c6599bd7f = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -656,24 +464,24 @@
             );
         
     
-        var popup_e4496716f60875836a72099f0f295270 = L.popup({
+        var popup_e4e1a76d197c616b44b151fe9074b6ff = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1f1203bc496182ab3c096ea4cd9d9d51 = $(`<div id="html_1f1203bc496182ab3c096ea4cd9d9d51" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Sport échange Outaouais</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Vente et réparation d'article de plein air</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 1065 Bd de la Carrière, Gatineau, QC J8Y 6V5</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_e4496716f60875836a72099f0f295270.setContent(html_1f1203bc496182ab3c096ea4cd9d9d51);
+                var html_96f6a882ea381fb740f76f0531871dea = $(`<div id="html_96f6a882ea381fb740f76f0531871dea" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Sport échange Outaouais</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Vente et réparation d'article de plein air</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 1065 Bd de la Carrière, Gatineau, QC J8Y 6V5</p>         <a href='https://www.sportechange.com/?srsltid=AfmBOopOoUlCUhwy90vJrjXE9mX0_y9t3Og6P8DRNTRpe2aA_V2UF53W' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_e4e1a76d197c616b44b151fe9074b6ff.setContent(html_96f6a882ea381fb740f76f0531871dea);
             
         
 
-        marker_8119d0e731623d7423321883c515ff2a.bindPopup(popup_e4496716f60875836a72099f0f295270)
+        marker_e1aed12d1d65aba22a6b8e9289221067.bindPopup(popup_e4e1a76d197c616b44b151fe9074b6ff)
         ;
 
         
     
     
-            marker_8119d0e731623d7423321883c515ff2a.bindTooltip(
+            marker_e1aed12d1d65aba22a6b8e9289221067.bindTooltip(
                 `<div>
                      Sport échange Outaouais
                  </div>`,
@@ -683,17 +491,17 @@
             );
         
     
-                marker_8119d0e731623d7423321883c515ff2a.setIcon(icon_413c2bb0519111b3bdd75be8238bd69b);
+                marker_e1aed12d1d65aba22a6b8e9289221067.setIcon(icon_1ef49f7d102169546405da6c6599bd7f);
             
     
-            var marker_979eedaaf0ff4c67eebadaabea832921 = L.marker(
-                [45.4384855, -75.8129344],
+            var marker_b4c68bcb2a16e6bfb93067c3128725cc = L.marker(
+                [45.4562883, -75.6916093],
                 {
 }
-            ).addTo(map_9cdee91d6ba4da6949e65ca4c567cb55);
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
         
     
-            var icon_3ae9fa0e620ef24ad8680b10aff8981d = L.AwesomeMarkers.icon(
+            var icon_b9a299c051c6090ac0d51bdf5c7d6099 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -704,26 +512,26 @@
             );
         
     
-        var popup_e0401654c43d04c57d0a297d7848d6bd = L.popup({
+        var popup_ac46e63638f7a2d0110a74626a5ff56f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_204d72fbed497e4ab8d67718d2502473 = $(`<div id="html_204d72fbed497e4ab8d67718d2502473" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>123 Saute</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Secteur non précisé</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 20 Croissant Kilroy, Gatineau, QC J9J 3T2</p>         <i>Site web non disponible</i>     </div>     </div>`)[0];
-                popup_e0401654c43d04c57d0a297d7848d6bd.setContent(html_204d72fbed497e4ab8d67718d2502473);
+                var html_82b5d143490db3a35c7cf6cc86111b49 = $(`<div id="html_82b5d143490db3a35c7cf6cc86111b49" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>À la dérive Brasserie Artisanale </h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Microbrasserie</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 1015 rue Jacques-Cartier, Gatineau QC J8T 2W3</p>         <a href='https://aladerivebrasserieartisanale.ca/?srsltid=AfmBOophU1kyW2cF-CmB98lTsMovphF5tH0HxwlGD1RaqaPfNOqix4Is' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_ac46e63638f7a2d0110a74626a5ff56f.setContent(html_82b5d143490db3a35c7cf6cc86111b49);
             
         
 
-        marker_979eedaaf0ff4c67eebadaabea832921.bindPopup(popup_e0401654c43d04c57d0a297d7848d6bd)
+        marker_b4c68bcb2a16e6bfb93067c3128725cc.bindPopup(popup_ac46e63638f7a2d0110a74626a5ff56f)
         ;
 
         
     
     
-            marker_979eedaaf0ff4c67eebadaabea832921.bindTooltip(
+            marker_b4c68bcb2a16e6bfb93067c3128725cc.bindTooltip(
                 `<div>
-                     123 Saute
+                     À la dérive Brasserie Artisanale 
                  </div>`,
                 {
   "sticky": true,
@@ -731,7 +539,151 @@
             );
         
     
-                marker_979eedaaf0ff4c67eebadaabea832921.setIcon(icon_3ae9fa0e620ef24ad8680b10aff8981d);
+                marker_b4c68bcb2a16e6bfb93067c3128725cc.setIcon(icon_b9a299c051c6090ac0d51bdf5c7d6099);
+            
+    
+            var marker_04542d6dec1ef33c80f12c47dd8163f5 = L.marker(
+                [45.4774462, -75.7814079],
+                {
+}
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
+        
+    
+            var icon_949e7199c2a96f05fd1a56ac79520703 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c299a1f18714cf677e849590a77841c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_408a8dcde3a477b1513492d952b17d6c = $(`<div id="html_408a8dcde3a477b1513492d952b17d6c" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>1 Clean Air</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Chauffage et Climatisation</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 103- 95 Bd de la Technologie, Gatineau, QC J8Z 3G4</p>         <a href='https://1cleanair.ca/fr/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_1c299a1f18714cf677e849590a77841c.setContent(html_408a8dcde3a477b1513492d952b17d6c);
+            
+        
+
+        marker_04542d6dec1ef33c80f12c47dd8163f5.bindPopup(popup_1c299a1f18714cf677e849590a77841c)
+        ;
+
+        
+    
+    
+            marker_04542d6dec1ef33c80f12c47dd8163f5.bindTooltip(
+                `<div>
+                     1 Clean Air
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_04542d6dec1ef33c80f12c47dd8163f5.setIcon(icon_949e7199c2a96f05fd1a56ac79520703);
+            
+    
+            var marker_c1a93ce825f9268fa1f7a6e2882eb38a = L.marker(
+                [45.4468645, -75.7412864],
+                {
+}
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
+        
+    
+            var icon_74e7309a7a84d06bc7686283ec2ea5f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "palette",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f82b05124a986de6a5fd0af367dab9ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74d1b978200fa4e1787b8602ca0a72d6 = $(`<div id="html_74d1b978200fa4e1787b8602ca0a72d6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Amuzart</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Arts, spectacles et loisirs</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 85 boul. St-Raymond, Gatineau Hull , QC, J8Y 1S4</p>         <a href='https://amuzart.com/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_f82b05124a986de6a5fd0af367dab9ba.setContent(html_74d1b978200fa4e1787b8602ca0a72d6);
+            
+        
+
+        marker_c1a93ce825f9268fa1f7a6e2882eb38a.bindPopup(popup_f82b05124a986de6a5fd0af367dab9ba)
+        ;
+
+        
+    
+    
+            marker_c1a93ce825f9268fa1f7a6e2882eb38a.bindTooltip(
+                `<div>
+                     Amuzart
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c1a93ce825f9268fa1f7a6e2882eb38a.setIcon(icon_74e7309a7a84d06bc7686283ec2ea5f6);
+            
+    
+            var marker_700efbb2f1e512dd5e47c5645dc1800f = L.marker(
+                [45.484168, -75.642858],
+                {
+}
+            ).addTo(map_27c687dcb0e17116f2264bc2974b950d);
+        
+    
+            var icon_b60f9603a785fb509a30b60c52478440 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "palette",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_512566409be4632fb45e01f316e7bf96 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f0f5b3e69530a922bd85ab019db4bfee = $(`<div id="html_f0f5b3e69530a922bd85ab019db4bfee" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial; font-size:14px; line-height:1.5; max-width:250px;'>         <h4 style='margin:0; color:#2c3e50;'>Productions Prestigo / Prestigo Médias</h4>         <p style='margin:4px 0;'><strong>Secteur :</strong> Arts, spectacles et loisirs</p>         <p style='margin:4px 0;'><strong>Adresse :</strong> 344, boulevard Maloney Est, Gatineau (Québec J8P 7A6</p>         <a href='https://prestigo.ca/' target='_blank' style='display:inline-block; margin-top:6px; padding:6px 12px; background-color:#3498db; color:white; text-decoration:none; border-radius:4px;'>🌐 Visiter le site</a>     </div>     </div>`)[0];
+                popup_512566409be4632fb45e01f316e7bf96.setContent(html_f0f5b3e69530a922bd85ab019db4bfee);
+            
+        
+
+        marker_700efbb2f1e512dd5e47c5645dc1800f.bindPopup(popup_512566409be4632fb45e01f316e7bf96)
+        ;
+
+        
+    
+    
+            marker_700efbb2f1e512dd5e47c5645dc1800f.bindTooltip(
+                `<div>
+                     Productions Prestigo / Prestigo Médias
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_700efbb2f1e512dd5e47c5645dc1800f.setIcon(icon_b60f9603a785fb509a30b60c52478440);
             
 </script>
 </html>

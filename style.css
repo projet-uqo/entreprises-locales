@@ -181,3 +181,26 @@ iframe {
     font-size: 16px;
   }
 }
+
+/* ✅ Bannière d'avertissement */
+.banner {
+  background-color: #f1c40f;   /* jaune vif */
+  color: #2c3e50;              /* texte gris foncé pour contraste */
+  text-align: center;          /* centrer le texte */
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px;
+  margin: 10px auto;
+  max-width: 1000px;           /* aligné avec header/nav */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;               /* permet d'ajouter un icône */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;                   /* espace entre icône et texte */
+}
+
+.banner .icon {
+  font-size: 20px;             /* taille de l'icône */
+}
+
