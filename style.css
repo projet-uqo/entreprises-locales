@@ -283,4 +283,23 @@ iframe {
   background: #1f4868;
 }
 
+/* Bouton Facebook uniquement icône */
+.btn-facebook-icon {
+  display: inline-block;
+  background-color: #1877f2; /* bleu Facebook */
+  color: white;
+  font-size: 20px; /* taille de l’icône */
+  padding: 10px 14px;
+  border-radius: 50%; /* cercle autour de l’icône */
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
 
+.btn-facebook-icon:hover {
+  background-color: #145dbf; /* bleu plus foncé au survol */
+  transform: scale(1.1); /* petit effet zoom */
+}
+
+.btn-facebook-icon i {
+  vertical-align: middle;
+}
