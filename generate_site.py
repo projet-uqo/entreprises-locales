@@ -15,13 +15,15 @@ from tqdm import tqdm
 import folium
 from folium.plugins import Fullscreen
 import os
+from openpyxl import load_workbook
 
-# Charger le fichier excel et lire la feuille principale (entreprises)
+# Charger le fichier excel et lire les feuilles
 
-df = pd.read_excel("Informations sur les entreprises.xlsx")
+xls = pd.ExcelFile("Informations sur les entreprises.xlsx")
 
-# Affiche les premières lignes pour vérifier
-df
+df = pd.read_excel(xls, sheet_name="Entreprises")
+df_prod = pd.read_excel(xls, sheet_name="Produits")
+
 
 # Nettoyage de base
 df["Adresse"] = (
@@ -115,13 +117,20 @@ df.update(df_valides[["Latitude", "Longitude"]])
 # Ajouter une colonne pour indiquer si le géocodage a réussi
 df["geocode_ok"] = df["Latitude"].notnull() & df["Longitude"].notnull()
 
-# Sauvegarde dans le fichier Excel (mise à jour)
-df.to_excel("Informations sur les entreprises.xlsx", index=False)
+# Sauvegarde dans le fichier Excel (mise à jour) SANS écraser les autres feuilles
 
-# Mettre à jour les coordonnées dans le DataFrame principal
-#for idx, row in df_valides.iterrows():
-#    df.loc[idx, "Latitude"] = row["Latitude"]
-#    df.loc[idx, "Longitude"] = row["Longitude"]
+# Charger le fichier existant
+book = load_workbook("Informations sur les entreprises.xlsx")
+
+with pd.ExcelWriter(
+    "Informations sur les entreprises.xlsx",
+    engine="openpyxl",
+    mode="a",
+    if_sheet_exists="replace"
+) as writer:
+    writer.book = book
+    df.to_excel(writer, sheet_name="Entreprises", index=False)
+
 
 # Afficher les entreprises géocodées avec succès
 df_valides_final = df[df["geocode_ok"]].copy()
