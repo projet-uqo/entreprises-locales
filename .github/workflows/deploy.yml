@@ -5,14 +5,18 @@ name: Déploiement vers GitHub Pages
 
 permissions:
   contents: write
+  pull-requests: read
 
 # 📅 Déclenchement du workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ] # Déclenché à chaque push sur la branche principale
+    paths-ignore: 
+      - "Informations sur les entreprises.xlsx"
   pull_request:
     branches: [ "main" ] # Optionnel : déclenche sur les pull requests
+    types: [opened, synchronize]
 
  # Permet de lancer manuellement depuis l'onglet Actions
   workflow_dispatch: 
@@ -22,6 +26,12 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    # 🔐 Sécurité : empêcher les PR externes et les boucles
+    if: >
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest # Utilise un environnement Linux pour exécuter les étapes
 
