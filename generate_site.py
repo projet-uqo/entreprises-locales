@@ -584,6 +584,7 @@ def bloc_entete(titre_page):
     <a href="index.html">Accueil</a>
     <a href="liste.html">Liste des entreprises</a>
     <a href="produits.html">Produits offerts</a>
+    <a href="formulaire.html">Ajouter une entreprise</a>
     <a href="contact.html">Nous contacter</a>
   </nav>
   <div class="content">
@@ -813,6 +814,76 @@ html_produits = bloc_entete("Produits offerts – Entreprises locales") + """
 # 💾 Sauvegarder
 with open("produits.html", "w", encoding="utf-8") as f:
     f.write(html_produits)
+
+"""# Page ajout d'entreprise"""
+def generer_page_formulaire():
+    formulaire_html = f"""
+{bloc_entete("Proposer une entreprise")}
+
+<h2>Proposer une entreprise locale</h2>
+<p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
+
+<form id="entrepriseForm">
+    <label>Nom de l'entreprise *</label>
+    <input type="text" id="nom" required>
+
+    <label>Adresse *</label>
+    <input type="text" id="adresse" required>
+
+    <label>Secteur *</label>
+    <input type="text" id="secteur" required>
+
+    <label>Site internet</label>
+    <input type="url" id="site">
+
+    <label>Logo (URL)</label>
+    <input type="url" id="logo">
+
+    <label>Description</label>
+    <textarea id="description" rows="4"></textarea>
+
+    <button type="submit">Télécharger la soumission</button>
+</form>
+
+<div id="message"></div>
+
+<script>
+document.getElementById("entrepriseForm").addEventListener("submit", function(e) {{
+    e.preventDefault();
+
+    const data = {{
+        nom: document.getElementById("nom").value.trim(),
+        adresse: document.getElementById("adresse").value.trim(),
+        secteur: document.getElementById("secteur").value.trim(),
+        site: document.getElementById("site").value.trim(),
+        logo: document.getElementById("logo").value.trim(),
+        description: document.getElementById("description").value.trim()
+    }};
+
+    if (!data.nom || !data.adresse || !data.secteur) {{
+        alert("Veuillez remplir tous les champs obligatoires.");
+        return;
+    }}
+
+    const blob = new Blob([JSON.stringify(data, null, 4)], {{ type: "application/json" }});
+    const filename = "soumission-" + Date.now() + ".json";
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+
+    document.getElementById("message").innerHTML =
+        `<div class="success">Votre fichier a été généré. Envoyez-le à l’administratrice du site pour approbation.</div>`;
+}});
+</script>
+
+{bloc_footer}
+"""
+
+# 💾 Sauvegarder la page contact
+with open("formulaire.html", "w", encoding="utf-8") as f:
+    f.write(formulaire_html)
 
 """# Page de contacts"""
 
