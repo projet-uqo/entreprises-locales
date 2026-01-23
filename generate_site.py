@@ -61,20 +61,12 @@ def geocode_adresse(adresse):
         sleep(1)  # Pause pour éviter le blocage
         location = geolocator.geocode(adresse, exactly_one=True, addressdetails=False)
         if location:
-            return pd.Series({"Latitude": location.latitude, "Longitude": location.longitude})
+            return location.latitude, location.longitude
     except (GeocoderTimedOut, GeocoderUnavailable):
-        # Retourne NaN pour laisser une seconde passe ou un retry plus tard
-        return pd.Series({"Latitude": None, "Longitude": None})
+        return None, None
     except Exception:
-        return pd.Series({"Latitude": None, "Longitude": None})
-    return pd.Series({"Latitude": None, "Longitude": None})
-
-# Harmoniser le nom d’entreprise
-#if "Nom de l'entreprise" not in df_valides.columns:
-#    if "Nom" in df_valides.columns:
-#        df_valides = df_valides.rename(columns={"Nom": "Nom de l'entreprise"})
-#    elif "Entreprise" in df_valides.columns:
-#        df_valides = df_valides.rename(columns={"Entreprise": "Nom de l'entreprise"})
+        return None, None
+    return None, None
 
 # 🧹 Filtrer les adresses valides
 df_valides = df[df["Adresse"].notnull() & ~df["Adresse"].str.lower().isin(["nan"])].copy()
@@ -103,10 +95,18 @@ adresses = df_valides.loc[mask, "Adresse_geocode"]
 coords = []
 for adresse in tqdm(adresses, desc="Géocodage"):
     lat, lon = geocode_adresse(adresse)
+    # Convertir None → np.nan
+    if lat is None:
+        lat = np.nan
+    if lon is None:
+        lon = np.nan
     coords.append((lat, lon))
 
-# Injection des résultats dans le DataFrame
-df_valides.loc[mask, ["Latitude", "Longitude"]] = coords
+# Convertir en DataFrame pour éviter les erreurs de dtype
+coords_df = pd.DataFrame(coords, columns=["Latitude", "Longitude"])
+
+# Injection propre
+df_valides.loc[mask, ["Latitude", "Longitude"]] = coords_df.values
 
 # Mettre à jour les coordonnées dans df original
 df.update(df_valides[["Latitude", "Longitude"]])
@@ -123,16 +123,14 @@ df.to_excel("Informations sur les entreprises.xlsx", index=False)
 #    df.loc[idx, "Longitude"] = row["Longitude"]
 
 # Afficher les entreprises géocodées avec succès
-df_valides_final = df[df["geocode_ok"]]
-df_valides_final[["Nom de l'entreprise", "Adresse","Site internet", "Secteur", "Latitude", "Longitude", "Logo"]]
+df_valides_final = df[df["geocode_ok"]].copy()
+print(df_valides_final[["Nom de l'entreprise", "Adresse","Site internet", "Secteur", "Latitude", "Longitude", "Logo"]])
 
 """Générer carte"""
 
 # Nettoyer les colonnes pour éviter les NaN
 df_valides_final["Site internet"] = df_valides_final["Site internet"].fillna('')
 df_valides_final["Secteur"] = df_valides_final["Secteur"].fillna("Secteur non précisé")
-
-df_valides_final
 
 # Créer la carte centrée sur Gatineau
 carte = folium.Map(location=[45.4765, -75.7013], zoom_start=12)
@@ -163,6 +161,7 @@ secteur_icons = {
     "Secteur non précisé": ("gray", "question", "fa")
 }
 
+df_valides_final = df_valides_final.dropna(subset=["Latitude", "Longitude"])
 
 # Boucle sur les entreprises valides
 for _, row in df_valides_final.iterrows():
