@@ -43,7 +43,7 @@ jobs:
       #  Étape 4 : Génération du sitemap et robots.txt (commentée pour l’instant)
       - name: Générer le site, sitemap et robots.txt
         run: |
-          #python generate_site.py
+          python generate_site.py
           python generate_sitemap.py
 
       # Étape 5 : Vérification que index.html existe
