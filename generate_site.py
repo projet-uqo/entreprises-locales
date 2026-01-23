@@ -914,3 +914,4 @@ with open("contact.html", "w", encoding="utf-8") as f:
     f.write(html_contact)
 
 
+
