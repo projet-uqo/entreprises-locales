@@ -3,6 +3,9 @@
 # Déploiement automatique du site web via GitHub Actions
 name: Déploiement vers GitHub Pages
 
+permissions:
+  contents: write
+
 # 📅 Déclenchement du workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -57,6 +60,15 @@ jobs:
           test -f site/sitemap.xml && echo "✅ sitemap.xml présent" || (echo "sitemap.xml manquant" && exit 1)
           test -f site/robots.txt && echo "✅ robots.txt présent" || (echo "robots.txt manquant" && exit 1)     
       
+      # Étape 8 : Enregistrement et mise à jour du fichier Excel
+      - name: Commit & push updated Excel file
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add "Informations sur les entreprises.xlsx"
+          git commit -m "Mise à jour automatique du fichier Excel via GitHub Actions" || echo "Aucun changement à committer"
+          git push
+
       # Étape 7 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -64,3 +76,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           publish_branch: gh-pages
+
+
+
