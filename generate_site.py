@@ -88,18 +88,27 @@ if nb_avant > nb_apres:
     print(f"⚠️ {nb_avant - nb_apres} doublon(s) supprimé(s) dans les adresses valides.")
 
 # 📍 Géocoder uniquement si Latitude/Longitude manquantes
-tqdm.pandas()
+
 # Créer lat/long si absentes aussi dans la copie
 for col in ["Latitude", "Longitude"]:
     if col not in df_valides.columns:
         df_valides[col] = pd.Series(dtype="float64")
 
 mask = df_valides["Latitude"].isnull() | df_valides["Longitude"].isnull()
-df_valides.loc[mask, ["Latitude", "Longitude"]] = (
-    df_valides.loc[mask, "Adresse_geocode"].progress_apply(geocode_adresse)
-)
 
-# Mettre à jour les coordonnées
+# Liste des adresses à géocoder
+adresses = df_valides.loc[mask, "Adresse_geocode"]
+
+# Géocodage avec barre de progression compatible Pandas 2.2+
+coords = []
+for adresse in tqdm(adresses, desc="Géocodage"):
+    lat, lon = geocode_adresse(adresse)
+    coords.append((lat, lon))
+
+# Injection des résultats dans le DataFrame
+df_valides.loc[mask, ["Latitude", "Longitude"]] = coords
+
+# Mettre à jour les coordonnées dans df original
 df.update(df_valides[["Latitude", "Longitude"]])
 
 # Ajouter une colonne pour indiquer si le géocodage a réussi
