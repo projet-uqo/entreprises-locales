@@ -815,10 +815,12 @@ html_produits = bloc_entete("Produits offerts – Entreprises locales") + """
 with open("produits.html", "w", encoding="utf-8") as f:
     f.write(html_produits)
 
-"""# Page ajout d'entreprise"""
-def generer_page_formulaire():
-    formulaire_html = f"""
-{bloc_entete("Proposer une entreprise")}
+# -----------------------------------------
+# Page ajout d'entreprise
+# -----------------------------------------
+
+formulaire_html = f"""
+{bloc_entete("Ajouter une entreprise")}
 
 <h2>Proposer une entreprise locale</h2>
 <p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
@@ -881,7 +883,7 @@ document.getElementById("entrepriseForm").addEventListener("submit", function(e)
 {bloc_footer}
 """
 
-# 💾 Sauvegarder la page contact
+# 💾 Sauvegarder la page formulaire
 with open("formulaire.html", "w", encoding="utf-8") as f:
     f.write(formulaire_html)
 
