@@ -12,8 +12,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ] # Déclenché à chaque push sur la branche principale
-    paths-ignore: 
-      - "Informations sur les entreprises.xlsx"
+    paths:
+      - "approved/**"  # Déclenche quand tu approuves une soumission
+      - "!submissions/**" # Ignore les soumissions non approuvées
+      - "!Informations sur les entreprises.xlsx" # Empêche les boucles
+
   pull_request:
     branches: [ "main" ] # Optionnel : déclenche sur les pull requests
     types: [opened, synchronize]
@@ -55,24 +58,30 @@ jobs:
         run: |
           pip install pandas folium openpyxl tqdm geopy
 
-      #  Étape 4 : Génération du sitemap et robots.txt (commentée pour l’instant)
+      # Étape 4: Traiter les soumissions approuvés
+      - name: Traiter les soumissions approuvées
+        run: |
+          python process_approved.py
+
+
+      #  Étape 5 : Génération du sitemap et robots.txt (commentée pour l’instant)
       - name: Générer le site, sitemap et robots.txt
         run: |
           python generate_site.py
           python generate_sitemap.py
 
-      # Étape 5 : Vérification que index.html existe
+      # Étape 6 : Vérification que index.html existe
       - name: Vérifier la présence de index.html
         run: |
           test -f site/index.html && echo "index.html présent" || (echo "index.html manquant" && exit 1)
      
-      # Étape 6 : Vérification que sitemap.xml et robot.txt existent
+      # Étape 7 : Vérification que sitemap.xml et robot.txt existent
       - name: Vérifier la présence de sitemap.xml et robots.txt
         run: |
           test -f site/sitemap.xml && echo "✅ sitemap.xml présent" || (echo "sitemap.xml manquant" && exit 1)
           test -f site/robots.txt && echo "✅ robots.txt présent" || (echo "robots.txt manquant" && exit 1)     
       
-      # Étape 7 : Enregistrement et mise à jour du fichier Excel
+      # Étape 8 : Enregistrement et mise à jour du fichier Excel
       - name: Commit & push updated Excel file
         run: |
           git config --global user.name "github-actions"
@@ -81,7 +90,7 @@ jobs:
           git commit -m "Mise à jour automatique du fichier Excel via GitHub Actions" || echo "Aucun changement à committer"
           git push
 
-      # Étape 8 : Déploiement vers GitHub Pages
+      # Étape 9 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
