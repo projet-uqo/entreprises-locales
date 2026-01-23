@@ -209,7 +209,7 @@ for _, row in df_valides_final.iterrows():
     ).add_to(carte)
 
 # Sauvegarder la carte dans un fichier HTML
-carte.save("carte_pme_gatineau.html")
+carte.save("site/carte_pme_gatineau.html")
 
 """Générer la page HTML complète avec navigation + carte
 
@@ -522,7 +522,7 @@ iframe {
   vertical-align: middle;
 }
 """
-with open("style.css", "w", encoding="utf-8") as f:
+with open("site/style.css", "w", encoding="utf-8") as f:
     f.write(style_css)
 
 """# En-tête html réutilisable"""
@@ -620,7 +620,7 @@ contenu_index = """
 html_index = bloc_entete("Accueil – Entreprises locales") + contenu_index + bloc_footer
 
 # 💾 Sauvegarder la page d’accueil avec carte
-with open("index.html", "w", encoding="utf-8") as f:
+with open("site/index.html", "w", encoding="utf-8") as f:
     f.write(html_index)
 
 """# Liste des entreprises"""
@@ -664,7 +664,7 @@ for secteur in secteurs_ordonnes:
 html_liste = bloc_entete("Liste des entreprises – Entreprises locales") + liste_html + bloc_footer
 
 # 💾 Sauvegarder la page
-with open("liste.html", "w", encoding="utf-8") as f:
+with open("site/liste.html", "w", encoding="utf-8") as f:
     f.write(html_liste)
 
 # Produits
@@ -810,7 +810,7 @@ html_produits = bloc_entete("Produits offerts – Entreprises locales") + """
 """ + bloc_footer
 
 # 💾 Sauvegarder
-with open("produits.html", "w", encoding="utf-8") as f:
+with open("site/produits.html", "w", encoding="utf-8") as f:
     f.write(html_produits)
 
 # -----------------------------------------
@@ -882,7 +882,7 @@ document.getElementById("entrepriseForm").addEventListener("submit", function(e)
 """
 
 # 💾 Sauvegarder la page formulaire
-with open("formulaire.html", "w", encoding="utf-8") as f:
+with open("site/formulaire.html", "w", encoding="utf-8") as f:
     f.write(formulaire_html)
 
 """# Page de contacts"""
@@ -908,5 +908,5 @@ html_contact = bloc_entete("Nous contacter – Entreprises locales") + """
 """ + bloc_footer
 
 # 💾 Sauvegarder la page contact
-with open("contact.html", "w", encoding="utf-8") as f:
+with open("site/contact.html", "w", encoding="utf-8") as f:
     f.write(html_contact)
