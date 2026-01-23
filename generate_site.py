@@ -119,8 +119,7 @@ df["geocode_ok"] = df["Latitude"].notnull() & df["Longitude"].notnull()
 
 # Sauvegarde dans le fichier Excel (mise à jour) SANS écraser les autres feuilles
 
-# Charger le fichier existant
-book = load_workbook("Informations sur les entreprises.xlsx")
+book = load_workbook("Informations sur les entreprises.xlsx") # Charger le fichier existant
 
 with pd.ExcelWriter(
     "Informations sur les entreprises.xlsx",
@@ -128,9 +127,10 @@ with pd.ExcelWriter(
     mode="a",
     if_sheet_exists="replace"
 ) as writer:
-    writer.book = book
+    # Nouvelle méthode Pandas 2.2 : assigner le classeur via l'attribut _book
+    writer._book = book
+    writer._sheets = book.worksheets
     df.to_excel(writer, sheet_name="Entreprises", index=False)
-
 
 # Afficher les entreprises géocodées avec succès
 df_valides_final = df[df["geocode_ok"]].copy()
