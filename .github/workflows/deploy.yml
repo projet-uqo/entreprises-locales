@@ -60,7 +60,7 @@ jobs:
           test -f site/sitemap.xml && echo "✅ sitemap.xml présent" || (echo "sitemap.xml manquant" && exit 1)
           test -f site/robots.txt && echo "✅ robots.txt présent" || (echo "robots.txt manquant" && exit 1)     
       
-      # Étape 8 : Enregistrement et mise à jour du fichier Excel
+      # Étape 7 : Enregistrement et mise à jour du fichier Excel
       - name: Commit & push updated Excel file
         run: |
           git config --global user.name "github-actions"
@@ -69,7 +69,7 @@ jobs:
           git commit -m "Mise à jour automatique du fichier Excel via GitHub Actions" || echo "Aucun changement à committer"
           git push
 
-      # Étape 7 : Déploiement vers GitHub Pages
+      # Étape 8 : Déploiement vers GitHub Pages
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
