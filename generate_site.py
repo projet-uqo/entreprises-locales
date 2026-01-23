@@ -667,10 +667,8 @@ html_liste = bloc_entete("Liste des entreprises – Entreprises locales") + list
 with open("liste.html", "w", encoding="utf-8") as f:
     f.write(html_liste)
 
-"""# Produits
-
-Regrouper les données par secteur et entreprise
-"""
+# Produits
+# Regrouper les données par secteur et entreprise
 
 # Lire la feuille des produits (deuxième feuille)
 df_prod = pd.read_excel("Informations sur les entreprises.xlsx", sheet_name="Produits")
@@ -912,6 +910,3 @@ html_contact = bloc_entete("Nous contacter – Entreprises locales") + """
 # 💾 Sauvegarder la page contact
 with open("contact.html", "w", encoding="utf-8") as f:
     f.write(html_contact)
-
-
-
