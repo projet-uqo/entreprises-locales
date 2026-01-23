@@ -892,7 +892,12 @@ with open("formulaire.html", "w", encoding="utf-8") as f:
 html_contact = bloc_entete("Nous contacter – Entreprises locales") + """
 <h2>Contactez notre équipe</h2>
 <p>Ce projet est réalisé par l’équipe <strong>Découvez Gatineau: Nos entreprises locales</strong>, dans le cadre d’un travail universitaire visant à valoriser les entreprises locales.</p>
-<p class="email">📧 Pour nous joindre : <a href="mailto:gaua83@uqo.ca">gaua83@uqo.ca</a></p>
+
+<p class="email">
+📧 Pour nous joindre :
+<a href="mailto:gaua83@uqo.ca">gaua83@uqo.ca</a>
+</p>
+
 <p class="facebook">
    🌐 Retrouvez-nous sur Facebook :
    <a href="https://www.facebook.com/people/Nos-Entreprises-Locales/61584067825922"
@@ -902,9 +907,10 @@ html_contact = bloc_entete("Nous contacter – Entreprises locales") + """
    </a>
 </p>
 
-
 """ + bloc_footer
 
 # 💾 Sauvegarder la page contact
 with open("contact.html", "w", encoding="utf-8") as f:
     f.write(html_contact)
+
+
