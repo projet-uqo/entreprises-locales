@@ -173,6 +173,15 @@ secteur_icons = {
 
 df_valides_final = df_valides_final.dropna(subset=["Latitude", "Longitude"])
 
+# Générer le fichier JSON pour le site
+df_valides_final.to_json(
+    "data/entreprises.json",
+    orient="records",
+    force_ascii=False,
+    indent=2
+)
+
+
 # Boucle sur les entreprises valides
 for _, row in df_valides_final.iterrows():
     nom = row["Nom de l'entreprise"]
