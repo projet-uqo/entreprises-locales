@@ -680,7 +680,7 @@ with open("site/liste.html", "w", encoding="utf-8") as f:
 # Regrouper les données par secteur et entreprise
 
 # Lire la feuille des produits (deuxième feuille)
-df_prod = pd.read_excel("Informations sur les entreprises.xlsx", sheet_name="Produits")
+df_prod = pd.read_excel("site/Informations sur les entreprises.xlsx", sheet_name="Produits")
 
 df_prod
 
