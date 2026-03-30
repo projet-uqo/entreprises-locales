@@ -15,7 +15,7 @@ on:
     paths:
       - "approved/**"  # Déclenche quand tu approuves une soumission
       - "!submissions/**" # Ignore les soumissions non approuvées
-      - "!Informations sur les entreprises.xlsx" # Empêche les boucles
+      - "!site/Informations sur les entreprises.xlsx" # Empêche les boucles
 
   pull_request:
     branches: [ "main" ] # Optionnel : déclenche sur les pull requests
