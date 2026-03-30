@@ -86,7 +86,7 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add "Informations sur les entreprises.xlsx"
+          git add "site/Informations sur les entreprises.xlsx"
           git commit -m "Mise à jour automatique du fichier Excel via GitHub Actions" || echo "Aucun changement à committer"
           git push
 
