@@ -175,7 +175,7 @@ df_valides_final = df_valides_final.dropna(subset=["Latitude", "Longitude"])
 
 # Générer le fichier JSON pour le site
 df_valides_final.to_json(
-    "data/entreprises.json",
+    "site/data/entreprises.json",
     orient="records",
     force_ascii=False,
     indent=2
