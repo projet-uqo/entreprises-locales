@@ -19,7 +19,7 @@ from openpyxl import load_workbook
 
 # Charger le fichier excel et lire les feuilles
 
-xls = pd.ExcelFile("Informations sur les entreprises.xlsx")
+xls = pd.ExcelFile("site/Informations sur les entreprises.xlsx")
 
 df = pd.read_excel(xls, sheet_name="Entreprises")
 df_prod = pd.read_excel(xls, sheet_name="Produits")
