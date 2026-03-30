@@ -119,10 +119,10 @@ df["geocode_ok"] = df["Latitude"].notnull() & df["Longitude"].notnull()
 
 # Sauvegarde dans le fichier Excel (mise à jour) SANS écraser les autres feuilles
 
-book = load_workbook("Informations sur les entreprises.xlsx") # Charger le fichier existant
+book = load_workbook("site/Informations sur les entreprises.xlsx") # Charger le fichier existant
 
 with pd.ExcelWriter(
-    "Informations sur les entreprises.xlsx",
+    "site/Informations sur les entreprises.xlsx",
     engine="openpyxl",
     mode="a",
     if_sheet_exists="replace"
