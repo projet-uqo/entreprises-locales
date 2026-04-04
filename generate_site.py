@@ -873,21 +873,22 @@ document.getElementById("entrepriseForm").addEventListener("submit", function(e)
         alert("Veuillez remplir tous les champs obligatoires.");
         return;
     }}
-    fetch('/.netlify/functions/submit', {
+    
+    fetch('/.netlify/functions/submit', {{
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
-    })
+    }})
     .then(response => response.json())
-    .then(result => {
+    .then(result => {{
     document.getElementById("message").innerHTML =
         `<div class="success">${result.message}</div>`;
-    })
-    .catch(error => {
+    }})
+    .catch(error => {{
     console.error(error);
     document.getElementById("message").innerHTML =
         `<div class="error">Une erreur est survenue. Veuillez réessayer.</div>`;
-    });
+    }});
 }});
 </script>
 
