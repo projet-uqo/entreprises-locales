@@ -826,9 +826,8 @@ with open("site/produits.html", "w", encoding="utf-8") as f:
 # Page ajout d'entreprise
 # -----------------------------------------
 
-formulaire_html = f"""
-{bloc_entete("Ajouter une entreprise")}
-
+formulaire_html = """
+""" + bloc_entete("Ajouter une entreprise") + """
 <h2>Proposer une entreprise locale</h2>
 <p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
 
@@ -857,47 +856,48 @@ formulaire_html = f"""
 <div id="message"></div>
 
 <script>
-document.getElementById("entrepriseForm").addEventListener("submit", function(e) {{
+document.getElementById("entrepriseForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const data = {{
+    const data = {
         nom: document.getElementById("nom").value.trim(),
         adresse: document.getElementById("adresse").value.trim(),
         secteur: document.getElementById("secteur").value.trim(),
         site: document.getElementById("site").value.trim(),
         logo: document.getElementById("logo").value.trim(),
         description: document.getElementById("description").value.trim()
-    }};
+    };
 
-    if (!data.nom || !data.adresse || !data.secteur) {{
+    if (!data.nom || !data.adresse || !data.secteur) {
         alert("Veuillez remplir tous les champs obligatoires.");
         return;
-    }}
-    
-    fetch('/.netlify/functions/submit', {{
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-    }})
+    }
+
+    fetch('/.netlify/functions/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
     .then(response => response.json())
-    .then(result => {{
-    document.getElementById("message").innerHTML =
-        `<div class="success">${result.message}</div>`;
-    }})
-    .catch(error => {{
-    console.error(error);
-    document.getElementById("message").innerHTML =
-        `<div class="error">Une erreur est survenue. Veuillez réessayer.</div>`;
-    }});
-}});
+    .then(result => {
+        document.getElementById("message").innerHTML =
+            `<div class="success">${result.message}</div>`;
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById("message").innerHTML =
+            `<div class="error">Une erreur est survenue. Veuillez réessayer.</div>`;
+    });
+});
 </script>
 
-{bloc_footer}
+""" + bloc_footer + """
 """
 
 # 💾 Sauvegarder la page formulaire
 with open("site/formulaire.html", "w", encoding="utf-8") as f:
     f.write(formulaire_html)
+
 
 """# Page de contacts"""
 
