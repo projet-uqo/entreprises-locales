@@ -851,7 +851,7 @@ formulaire_html = f"""
     <label>Description</label>
     <textarea id="description" rows="4"></textarea>
 
-    <button type="submit">Télécharger la soumission</button>
+    <button type="submit">Envoyer la soumission</button>
 </form>
 
 <div id="message"></div>
@@ -873,17 +873,21 @@ document.getElementById("entrepriseForm").addEventListener("submit", function(e)
         alert("Veuillez remplir tous les champs obligatoires.");
         return;
     }}
-
-    const blob = new Blob([JSON.stringify(data, null, 4)], {{ type: "application/json" }});
-    const filename = "soumission-" + Date.now() + ".json";
-
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
-
+    fetch('/.netlify/functions/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
     document.getElementById("message").innerHTML =
-        `<div class="success">Votre fichier a été généré. Envoyez-le à l’administratrice du site pour approbation.</div>`;
+        `<div class="success">${result.message}</div>`;
+    })
+    .catch(error => {
+    console.error(error);
+    document.getElementById("message").innerHTML =
+        `<div class="error">Une erreur est survenue. Veuillez réessayer.</div>`;
+    });
 }});
 </script>
 
