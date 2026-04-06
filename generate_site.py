@@ -143,7 +143,13 @@ df_valides_final["Site internet"] = df_valides_final["Site internet"].fillna('')
 df_valides_final["Secteur"] = df_valides_final["Secteur"].fillna("Secteur non précisé")
 
 # Créer la carte centrée sur Gatineau
-carte = folium.Map(location=[45.4765, -75.7013], zoom_start=12)
+carte = folium.Map(
+    location=[45.4765, -75.7013],
+    zoom_start=12,
+    tiles="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
+    attr="© OpenStreetMap contributors, Tiles courtesy of OSM France"
+)
+
 Fullscreen(position='topright').add_to(carte)
 
 # Dictionnaire secteur → icône  (à modifier pour que cela corresponde aux catégories des entreprises)
