@@ -94,7 +94,7 @@ export async function handler(event, context) {
 
     // 12. Ajout du fichier JSON
     const createFileRes = await fetch(
-      `https://api.github.com/repos/${repo}/contents/submissions/${fileName}`,
+      `https://api.github.com/repos/${repo}/contents/soumissions/${fileName}`,
       {
         method: "PUT",
         headers: {
