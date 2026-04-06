@@ -13,8 +13,7 @@ on:
   push:
     branches: [ "main" ] # Déclenché à chaque push sur la branche principale
     paths:
-      - "approved/**"  # Déclenche quand tu approuves une soumission
-      - "!soumissions/**" # Ignore les soumissions non approuvées
+      - "soumissions/**" # # Déclenche quand une soumission approuvée est mergée
       - "!site/Informations sur les entreprises.xlsx" # Empêche les boucles
 
   pull_request:
