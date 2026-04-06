@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import pandas as pd
 import numpy as np
 from openpyxl import load_workbook
@@ -13,6 +14,8 @@ SHEET_NAME = "Entreprises"
 # -----------------------------
 # 🔐 VALIDATION DES DONNÉES
 # -----------------------------
+
+URL_REGEX = re.compile(r"^https?://", re.IGNORECASE) # Sera utilisé pour valider URL
 
 def validate_submission(data):
     required_fields = ["nom", "adresse", "secteur"]
@@ -29,6 +32,18 @@ def validate_submission(data):
         return False, "Adresse trop longue"
     if len(data["secteur"]) > 200:
         return False, "Secteur trop long"
+
+
+    #Vérifier URL
+    if data.get("site"):
+        site = data["site"].strip()
+        if site and not URL_REGEX.match(site):
+            data["site"] = "https://" + site  # auto-correction
+
+    if data.get("logo"):
+        logo = data["logo"].strip()
+        if logo and not URL_REGEX.match(logo):
+            data["logo"] = "https://" + logo  # auto-correction
 
     # Nettoyage anti‑XSS
     for key in data:
@@ -77,10 +92,13 @@ def insert_into_excel(entries):
         })
 
     df_new = pd.DataFrame(new_rows)
-
+   
     # Ajouter les nouvelles lignes
     df_final = pd.concat([df, df_new], ignore_index=True)
-
+    
+    # Éviter doublons
+    df_final.drop_duplicates(subset=["Nom de l'entreprise"], keep="first", inplace=True)
+    
     # Sauvegarde SANS écraser les autres feuilles
     book = load_workbook(EXCEL_FILE)
 
@@ -105,7 +123,15 @@ def insert_into_json(entries):
     else:
         data = []
 
+    # Fusion
     data.extend(entries)
+
+    # Déduplication par nom
+    unique = {e["nom"].lower(): e for e in data}
+    data = list(unique.values())
+
+    # Triage des données
+    data = sorted(data, key=lambda x: x["nom"].lower())
 
     with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
@@ -116,7 +142,11 @@ def insert_into_json(entries):
 
 def delete_processed(files):
     for f in files:
-        os.remove(os.path.join(APPROVED_DIR, f))
+        try:
+            os.remove(os.path.join(APPROVED_DIR, f))
+        except FileNotFoundError:
+            pass
+        
 
 
 # -----------------------------
@@ -163,7 +193,8 @@ def main():
 
     insert_into_excel(valid_entries)
     
-    print("📝 Mise à jour de entreprises.json...")
+    print(f"✨ Ajout de {len(valid_entries)} entreprises dans entreprises.json...")
+
     insert_into_json(valid_entries)
     
     print("🗑️ Suppression des fichiers traités...")
