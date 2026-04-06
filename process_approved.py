@@ -5,8 +5,9 @@ import numpy as np
 from openpyxl import load_workbook
 import html
 
-APPROVED_DIR = "approved"
-EXCEL_FILE = "Informations sur les entreprises.xlsx"
+APPROVED_DIR = "soumissions"
+EXCEL_FILE = "site/Informations sur les entreprises.xlsx"
+JSON_FILE = "site/data/entreprises.json"
 SHEET_NAME = "Entreprises"
 
 # -----------------------------
@@ -14,11 +15,6 @@ SHEET_NAME = "Entreprises"
 # -----------------------------
 
 def validate_submission(data):
-    """
-    Valide une soumission JSON avant insertion dans l'Excel.
-    Retourne un tuple (ok, message).
-    """
-
     required_fields = ["nom", "adresse", "secteur"]
 
     # Vérifier les champs obligatoires
@@ -45,13 +41,10 @@ def validate_submission(data):
 # -----------------------------
 # 📥 LECTURE DES FICHIERS APPROUVÉS
 # -----------------------------
-
 def load_approved_submissions():
-    files = [
-        f for f in os.listdir(APPROVED_DIR)
-        if f.endswith(".json")
-    ]
-    return files
+    if not os.path.exists(APPROVED_DIR):
+        return []
+    return [f for f in os.listdir(APPROVED_DIR) if f.endswith(".json")]
 
 
 # -----------------------------
@@ -101,7 +94,22 @@ def insert_into_excel(entries):
         writer._sheets = book.worksheets
         df_final.to_excel(writer, sheet_name=SHEET_NAME, index=False)
 
+# -----------------------------
+# 🧩 INSERTION DANS entreprises.json
+# -----------------------------
 
+def insert_into_json(entries):
+    if os.path.exists(JSON_FILE):
+        with open(JSON_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    else:
+        data = []
+
+    data.extend(entries)
+
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        
 # -----------------------------
 # 🗑️ SUPPRESSION DES FICHIERS TRAITÉS
 # -----------------------------
@@ -154,7 +162,10 @@ def main():
     print(f"📝 Insertion de {len(valid_entries)} nouvelle(s) entreprise(s) dans l'Excel...")
 
     insert_into_excel(valid_entries)
-
+    
+    print("📝 Mise à jour de entreprises.json...")
+    insert_into_json(valid_entries)
+    
     print("🗑️ Suppression des fichiers traités...")
     delete_processed(processed_files)
 
