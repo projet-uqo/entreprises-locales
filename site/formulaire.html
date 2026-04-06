@@ -51,25 +51,46 @@
 
 <h2>Proposer une entreprise locale</h2>
 <p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
+<h2>Proposer une entreprise locale</h2>
+<p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
 
 <form id="entrepriseForm">
-    <label>Nom de l'entreprise *</label>
-    <input type="text" id="nom" required>
 
-    <label>Adresse *</label>
-    <input type="text" id="adresse" required>
+    <!-- Champ piège pour robots (honeypot) -->
+    <div style="display:none;">
+        <label for="website">Ne pas remplir ce champ</label>
+        <input type="text" id="website" name="website">
+    </div>
+    
+    <div class="form-group">
+        <label for="nom">Nom de l'entreprise *</label>
+        <input type="text" id="nom" required>
+    </div>
 
-    <label>Secteur *</label>
-    <input type="text" id="secteur" required>
+    <div class="form-group">
+        <label for="adresse">Adresse *</label>
+        <input type="text" id="adresse" required>
+    </div>
 
-    <label>Site internet</label>
-    <input type="url" id="site">
+    <div class="form-group">
+        <label for="secteur">Secteur *</label>
+        <input type="text" id="secteur" required>
+    </div>
 
-    <label>Logo (URL)</label>
-    <input type="url" id="logo">
+    <div class="form-group">
+        <label for="site">Site internet</label>
+        <input type="url" id="site" placeholder="https://...">
+    </div>
 
-    <label>Description</label>
-    <textarea id="description" rows="4"></textarea>
+    <div class="form-group">
+        <label for="logo">Logo (URL)</label>
+        <input type="url" id="logo" placeholder="https://...">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" rows="4"></textarea>
+    </div>
 
     <button type="submit">Envoyer la soumission</button>
 </form>
