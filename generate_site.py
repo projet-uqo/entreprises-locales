@@ -705,7 +705,7 @@ def bloc_entete(titre_page):
 bloc_footer = """
   </div>
     <footer>
-    <p>&copy; 2025 - Découvrez Gatineau: Nos entreprises locales</p>
+    <p>&copy; 2026 - Découvrez Gatineau: Nos entreprises locales</p>
   </footer>
 </body>
 </html>
