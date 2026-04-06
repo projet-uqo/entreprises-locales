@@ -90,7 +90,7 @@ jobs:
           git commit -m "Mise à jour automatique du fichier Excel via GitHub Actions" || echo "Aucun changement à committer"
           git push
 
-    # ⭐ Étape 8 : Mise à jour du dossier site/ dans main (pour Netlify)
+      # Étape 9 : Mise à jour du dossier site/ dans main (pour Netlify)
       # Netlify lit la branche main → il doit voir le dossier site/
       - name: Commit & push site/ vers main (pour Netlify)
         run: |
@@ -100,7 +100,7 @@ jobs:
           git commit -m "Mise à jour du site pour Netlify" || echo "Aucun changement"
           git push  
 
-      # Étape 9 : Déploiement vers GitHub Pages
+      # Étape 10 : Déploiement vers GitHub Pages
       # GitHub Pages lit gh-pages → on publie aussi ici
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
