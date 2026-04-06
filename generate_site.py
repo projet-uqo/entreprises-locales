@@ -536,6 +536,101 @@ iframe {
 .btn-facebook-icon i {
   vertical-align: middle;
 }
+
+/* ============================
+   FORMULAIRE — STYLE MODERNE
+   ============================ */
+
+form {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 650px;
+  margin: 30px auto;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0;
+}
+
+form h2 {
+  text-align: center;
+  color: #2a5d84;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #2a5d84;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #2a5d84;
+  box-shadow: 0 0 4px rgba(42, 93, 132, 0.4);
+  outline: none;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Bouton principal */
+form button {
+  background-color: #2a5d84;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+form button:hover {
+  background-color: #1f4868;
+  transform: translateY(-2px);
+}
+
+/* Message de confirmation */
+.form-success {
+  background: #e8f7e8;
+  border-left: 4px solid #1a7f37;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 6px;
+  color: #1a7f37;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    padding: 18px;
+  }
+}
+
+
+
 """
 with open("site/style.css", "w", encoding="utf-8") as f:
     f.write(style_css)
@@ -836,25 +931,46 @@ formulaire_html = """
 """ + bloc_entete("Ajouter une entreprise") + """
 <h2>Proposer une entreprise locale</h2>
 <p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
+<h2>Proposer une entreprise locale</h2>
+<p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
 
 <form id="entrepriseForm">
-    <label>Nom de l'entreprise *</label>
-    <input type="text" id="nom" required>
 
-    <label>Adresse *</label>
-    <input type="text" id="adresse" required>
+    <!-- Champ piège pour robots (honeypot) -->
+    <div style="display:none;">
+        <label for="website">Ne pas remplir ce champ</label>
+        <input type="text" id="website" name="website">
+    </div>
+    
+    <div class="form-group">
+        <label for="nom">Nom de l'entreprise *</label>
+        <input type="text" id="nom" required>
+    </div>
 
-    <label>Secteur *</label>
-    <input type="text" id="secteur" required>
+    <div class="form-group">
+        <label for="adresse">Adresse *</label>
+        <input type="text" id="adresse" required>
+    </div>
 
-    <label>Site internet</label>
-    <input type="url" id="site">
+    <div class="form-group">
+        <label for="secteur">Secteur *</label>
+        <input type="text" id="secteur" required>
+    </div>
 
-    <label>Logo (URL)</label>
-    <input type="url" id="logo">
+    <div class="form-group">
+        <label for="site">Site internet</label>
+        <input type="url" id="site" placeholder="https://...">
+    </div>
 
-    <label>Description</label>
-    <textarea id="description" rows="4"></textarea>
+    <div class="form-group">
+        <label for="logo">Logo (URL)</label>
+        <input type="url" id="logo" placeholder="https://...">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" rows="4"></textarea>
+    </div>
 
     <button type="submit">Envoyer la soumission</button>
 </form>
