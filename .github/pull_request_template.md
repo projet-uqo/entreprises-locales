@@ -15,7 +15,7 @@ Merci pour votre contribution !
 
 ### 🗂 Informations techniques
 
-- Fichier ajouté dans `submissions/`
+- Fichier ajouté dans `soumissions/`
 - Cette PR a été générée automatiquement par la fonction Netlify
 
 ### 📝 Notes du modérateur
