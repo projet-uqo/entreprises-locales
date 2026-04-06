@@ -10,7 +10,7 @@ from datetime import datetime
 
 # Dossier où tes fichiers HTML sont générés
 SITE_DIR = "site"
-BASE_URL = "https://projet-uqo.github.io/entreprises-locales"  # ⚠️ adapte avec ton dépôt GitHub Pages (lien vers site web)
+BASE_URL = "https://entreprises-locales.netlify.app"  # ⚠️ Modifié pour Netlify
 
 # Pour savoir s'il y a une erreur
 if not os.path.exists(SITE_DIR):
