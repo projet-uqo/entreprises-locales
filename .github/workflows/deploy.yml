@@ -1,7 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 
 # Déploiement automatique du site web via GitHub Actions
-name: Déploiement vers GitHub Pages
+name: Déploiement du site (GitHub Pages et Netlify)
 
 permissions:
   contents: write
@@ -90,7 +90,18 @@ jobs:
           git commit -m "Mise à jour automatique du fichier Excel via GitHub Actions" || echo "Aucun changement à committer"
           git push
 
+    # ⭐ Étape 8 : Mise à jour du dossier site/ dans main (pour Netlify)
+      # Netlify lit la branche main → il doit voir le dossier site/
+      - name: Commit & push site/ vers main (pour Netlify)
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add site
+          git commit -m "Mise à jour du site pour Netlify" || echo "Aucun changement"
+          git push  
+
       # Étape 9 : Déploiement vers GitHub Pages
+      # GitHub Pages lit gh-pages → on publie aussi ici
       - name: Déployer vers GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
