@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://projet-uqo.github.io/entreprises-locales/sitemap.xml
+Sitemap: https://entreprises-locales.netlify.app/sitemap.xml
