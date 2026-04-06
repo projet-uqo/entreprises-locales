@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://projet-uqo.github.io/entreprises-locales/sitemap.xml
