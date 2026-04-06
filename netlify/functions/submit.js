@@ -2,47 +2,76 @@
 
 export async function handler(event, context) {
   try {
+    // 1. Méthode autorisée
     if (event.httpMethod !== "POST") {
-      return { statusCode: 405, body: "Méthode non autorisée" };
+      return { statusCode: 405, body: "Méthode non autorisée." };
     }
 
+    // 2. Vérification de l'origine (anti-abus)
+    const allowedOrigin = "https://entreprises-locales.netlify.app";
+    const origin = event.headers.origin || event.headers.referer || "";
+
+    if (!origin.startsWith(allowedOrigin)) {
+      return { statusCode: 403, body: "Origine non autorisée." };
+    }
+
+    // 3. Récupération des données
     const data = JSON.parse(event.body || "{}");
 
-    // Validation minimale
-    if (!data.nom || !data.adresse || !data.secteur) {
-      return {
-        statusCode: 400,
-        body: "Champs obligatoires manquants (nom, adresse, secteur)."
-      };
+    // 4. Honeypot anti-bot
+    if (data.website && data.website.trim() !== "") {
+      return { statusCode: 400, body: "Bot détecté." };
     }
 
-    // 1. Générer le contenu JSON
+    // 5. Fonction de nettoyage
+    function sanitize(input, max = 100) {
+      if (!input) return "";
+      return String(input)
+        .trim()
+        .replace(/[<>]/g, "")     // empêche les injections HTML
+        .replace(/[\n\r]/g, " ")  // empêche les retours de ligne
+        .substring(0, max);
+    }
+
+    // 6. Nettoyage des champs
+    data.nom = sanitize(data.nom, 80);
+    data.adresse = sanitize(data.adresse, 120);
+    data.secteur = sanitize(data.secteur, 60);
+    data.site = sanitize(data.site, 200);
+    data.logo = sanitize(data.logo, 200);
+    data.description = sanitize(data.description, 500);
+
+    // 7. Validation stricte
+    if (!data.nom || data.nom.length < 2) {
+      return { statusCode: 400, body: "Nom invalide." };
+    }
+    if (!data.adresse || data.adresse.length < 5) {
+      return { statusCode: 400, body: "Adresse invalide." };
+    }
+    if (!data.secteur || data.secteur.length < 2) {
+      return { statusCode: 400, body: "Secteur invalide." };
+    }
+
+    // 8. Préparation du fichier JSON
     const jsonContent = JSON.stringify(data, null, 2);
     const safeName = data.nom.replace(/\s+/g, "_").toLowerCase();
     const fileName = `soumission-${safeName}-${Date.now()}.json`;
 
-    // 2. Infos GitHub
+    // 9. GitHub API
     const repo = "projet-uqo/entreprises-locales";
     const token = process.env.GITHUB_TOKEN;
 
     if (!token) {
-      return {
-        statusCode: 500,
-        body: "GITHUB_TOKEN manquant dans les variables d'environnement."
-      };
+      return { statusCode: 500, body: "GITHUB_TOKEN manquant." };
     }
 
-    // 3. Créer une nouvelle branche à partir de main
+    // 10. Récupération du SHA de main
     const mainRefRes = await fetch(
       `https://api.github.com/repos/${repo}/git/ref/heads/main`,
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      }
+      { headers: { Authorization: `Bearer ${token}` } }
     );
 
     if (!mainRefRes.ok) {
-      const text = await mainRefRes.text();
-      console.error("Erreur récupération ref main:", text);
       return { statusCode: 500, body: "Impossible de récupérer la branche main." };
     }
 
@@ -50,28 +79,20 @@ export async function handler(event, context) {
     const mainSha = mainRef.object.sha;
     const branchName = `submission-${Date.now()}`;
 
-    const createRefRes = await fetch(
-      `https://api.github.com/repos/${repo}/git/refs`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          ref: `refs/heads/${branchName}`,
-          sha: mainSha
-        })
-      }
-    );
+    // 11. Création de la branche
+    await fetch(`https://api.github.com/repos/${repo}/git/refs`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        ref: `refs/heads/${branchName}`,
+        sha: mainSha
+      })
+    });
 
-    if (!createRefRes.ok) {
-      const text = await createRefRes.text();
-      console.error("Erreur création branche:", text);
-      return { statusCode: 500, body: "Impossible de créer la branche de soumission." };
-    }
-
-    // 4. Ajouter le fichier JSON dans submissions/
+    // 12. Ajout du fichier JSON
     const createFileRes = await fetch(
       `https://api.github.com/repos/${repo}/contents/submissions/${fileName}`,
       {
@@ -89,12 +110,10 @@ export async function handler(event, context) {
     );
 
     if (!createFileRes.ok) {
-      const text = await createFileRes.text();
-      console.error("Erreur création fichier:", text);
       return { statusCode: 500, body: "Impossible de créer le fichier de soumission." };
     }
 
-    // 5. Créer la Pull Request
+    // 13. Création de la Pull Request
     const prRes = await fetch(
       `https://api.github.com/repos/${repo}/pulls`,
       {
@@ -107,16 +126,10 @@ export async function handler(event, context) {
           title: `Nouvelle soumission : ${data.nom}`,
           head: branchName,
           base: "main",
-          body: `Une nouvelle entreprise a été soumise.\n\nNom : **${data.nom}**\nAdresse : ${data.adresse}\nSecteur : ${data.secteur}\n\nMerci de vérifier et d'approuver.`
+          body: `Une nouvelle entreprise a été soumise.\n\nNom : **${data.nom}**\nAdresse : ${data.adresse}\nSecteur : ${data.secteur}`
         })
       }
     );
-
-    if (!prRes.ok) {
-      const text = await prRes.text();
-      console.error("Erreur création PR:", text);
-      return { statusCode: 500, body: "Impossible de créer la Pull Request." };
-    }
 
     const pr = await prRes.json();
 
@@ -127,9 +140,9 @@ export async function handler(event, context) {
         pr_url: pr.html_url
       })
     };
+
   } catch (error) {
     console.error("Erreur submit.js:", error);
     return { statusCode: 500, body: "Erreur interne du serveur." };
   }
 }
-
