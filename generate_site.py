@@ -931,8 +931,6 @@ formulaire_html = """
 """ + bloc_entete("Ajouter une entreprise") + """
 <h2>Proposer une entreprise locale</h2>
 <p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
-<h2>Proposer une entreprise locale</h2>
-<p>Remplissez ce formulaire pour soumettre les informations de l’entreprise pour approbation.</p>
 
 <form id="entrepriseForm">
 
